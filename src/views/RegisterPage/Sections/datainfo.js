@@ -14,15 +14,7 @@ import { Link } from "react-router-dom";
 import "../style.css"
 
 const useStyles = makeStyles(styles);
-const useStylesFlag = makeStyles({
-  option: {
-    fontSize: 15,
-    '& > span': {
-      marginRight: 10,
-      fontSize: 18,
-    },
-  },
-});
+
 
 export default function RegisterPage(props) {
   

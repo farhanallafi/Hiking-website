@@ -4,13 +4,10 @@ import classNames from "classnames";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 // @material-ui/icons
-import Camera from "@material-ui/icons/Camera";
-import Palette from "@material-ui/icons/Palette";
-import Favorite from "@material-ui/icons/Favorite";
+
 // core components
 import Header from "components/Header/Header.js";
 import Footer from "components/Footer/Footer.js";
-import Button from "components/CustomButtons/Button.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
@@ -25,12 +22,6 @@ const useStyles = makeStyles(styles);
 export default function ProfilePage(props) {
   const classes = useStyles();
   const { ...rest } = props;
-  const imageClasses = classNames(
-    classes.imgRaised,
-    classes.imgRoundedCircle,
-    classes.imgFluid
-  );
-  const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
   return (
     <div>
       <Header
@@ -53,26 +44,26 @@ export default function ProfilePage(props) {
                 <div className={classes.left}>
                   <h2>IMPRESSUM </h2>
                   <h3>ANGABEN GEMÄSS § 5 TMG</h3>
-                  leetHub St.Pauli e.V.
-                  Bernstorffstraße 118
-                   22767 Hamburg
+                 <ul><li>Vorwärts Team-Europa e.V.</li> 
+                 <li>Kantstraße 15</li>
+                 <li> 66111 Saarbrücken</li></ul>
                   <h3>VERTRETEN DURCH: Vorstand:</h3>
-                  Anna Schneider, Steffen Schulze-Ketelhut
+                  Tanja Valerie Eickhoff, Fadi Alnezami.
                   <h3>KONTAKT:</h3>
-                  Telefon: 04020974622
-                  E-Mail: post@leethub.de
+                  <li> Telefon: +49 152 – 376 46 016</li>
+                  <li> E-Mail:forwards2016europ@gmail.com</li> 
 
                   <h3>REGISTEREINTRAG:</h3>
-                  Eintragungim Vereinsregister.
-                  Registergericht: Amtsgericht Hamburg
-                  Registernummer: VR 22751
-                  Satzung als PDF zum Download
+                  <li>   Eintragung im Vereinsregister.</li>
+                  <li> Registergericht:</li> 
+                  <li> Amtsgericht Saarbrücken Registernummer: VR5619</li> 
+                  <li> Satzung als PDF zum Download</li> 
 
                   <h3>STEUERNUMMER:</h3>
                   Steuernr. 17/452/01640 gemeinnützig anerkannt
                   
                   <h3>WEBDESIGN & PROGRAMMIERUNG:</h3>
-                  straightup webstudio - Joomla Agentur Hamburg
+                  Farhan Allafi DCI
                   <h3>STREITSCHLICHTUNG</h3>
                   Wir sind nicht bereit oder
                   verpflichtet, an Streitbeilegungsverfahren vor einer

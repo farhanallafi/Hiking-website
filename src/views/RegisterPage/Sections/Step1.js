@@ -67,7 +67,7 @@ export default function RegisterPage(props) {
   // const [selectedEnabled, setSelectedEnabled] = React.useState("b");
   const classes = useStyles();
   const classesFlag = useStylesFlag()
-  const { ...rest } = props;
+ 
   return (
     <div>
       

@@ -24,6 +24,7 @@ import EventSection from "./Sections/EventSection.js";
 import WorkSection from "./Sections/WorkSection.js";
 import  SectionCarousel from "./Sections/SectionCarousel"
 import VideoSection from './Sections/VideoSection'
+import NewEvent from "views/NewEvent/Sections/EventSection";
 
 const dashboardRoutes = [];
 
@@ -61,7 +62,7 @@ export default function  Home(props) {
               </div>
             </GridItem>
           </GridContainer>
-          <EventSection />
+          <NewEvent />
           <WorkSection />
         </div>
       </div>

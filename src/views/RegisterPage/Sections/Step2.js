@@ -31,15 +31,7 @@ import Checkbox from "@material-ui/core/Checkbox";
 
 const useStyles = makeStyles(styles);
 const useStylesbasic = makeStyles(stylesbasic);
-const useStylesFlag = makeStyles({
-  option: {
-    fontSize: 15,
-    "& > span": {
-      marginRight: 10,
-      fontSize: 18
-    }
-  }
-});
+
 
 
 export default function RegisterPage(props) {
@@ -70,8 +62,7 @@ export default function RegisterPage(props) {
   const classes = useStyles();
   const classesBasic = useStylesbasic();
 
-  const classesFlag = useStylesFlag();
-  const { ...rest } = props;
+
   return (
     <div>
       <CardBody>

@@ -31,15 +31,6 @@ import Step2 from "./Sections/Step2";
 import Step3 from "./Sections/Step3";
 
 const useStyles = makeStyles(styles);
-const useStylesFlag = makeStyles({
-  option: {
-    fontSize: 15,
-    '& > span': {
-      marginRight: 10,
-      fontSize: 18,
-    },
-  },
-});
 
 export default function RegisterPage(props) {
   const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
@@ -48,7 +39,6 @@ export default function RegisterPage(props) {
   }, 700);
   // const [selectedEnabled, setSelectedEnabled] = React.useState("b");
   const classes = useStyles();
-  const classesFlag = useStylesFlag()
   const { ...rest } = props;
   return (
     <div>
