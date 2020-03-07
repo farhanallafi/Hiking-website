@@ -2,6 +2,7 @@
 import React from "react";
 import DeleteIcon from "@material-ui/icons/Delete";
 import IconButton from "@material-ui/core/IconButton";
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 // react components for routing our app without refresh
 import { Link } from "react-router-dom";
 
@@ -55,15 +56,17 @@ export default function HeaderLinks(props) {
           }}
           buttonIcon={Apps}
           dropdownList={[
-            <a href="/oldevent#event" className={classes.dropdownLink}>
+            <Link to="/oldevents" className={classes.dropdownLink}>
               Old Events
-            </a>,
+            </Link>,
             <Link
-              to="/newevent"
+              to="/newevents"
               className={classes.dropdownLink}
             >
               New Event 
             </Link>
+            
+           
           ]}
         />
       </ListItem>
@@ -85,6 +88,12 @@ export default function HeaderLinks(props) {
               className={classes.dropdownLink}
             >
              Sign up
+            </Link>,
+            <Link
+              to="/profile-page"
+              className={classes.dropdownLink}
+            >
+              Profile 
             </Link>
           ]}
         />

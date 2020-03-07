@@ -233,9 +233,9 @@ export default function RegisterPage(props) {
             Back
           </Button>
         </Link>
-        <Link to="/">
-          <Button className="button1" simple color="danger" size="lg">
-            next
+        <Link to="/profile-page">
+          <Button type="submit" className="button1" simple color="danger" size="lg">
+            Submit
           </Button>
         </Link>
       </CardFooter>

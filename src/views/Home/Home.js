@@ -13,18 +13,15 @@ import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 // import Button from "components/CustomButtons/Button.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
-import Parallax from "components/Parallax/Parallax.js";
-
+import NewParallax from 'components/NewParallax/NewParallax'
 import styles from "assets/jss/material-kit-react/views/landingPage.js";
 
 import image1 from "assets/img/color.png";
 // Sections for this page
-import EventSection from "./Sections/EventSection.js";
 // import TeamSection from "./Sections/TeamSection.js";
-import WorkSection from "./Sections/WorkSection.js";
+// import WorkSection from "./Sections/WorkSection.js";
 import  SectionCarousel from "./Sections/SectionCarousel"
-import VideoSection from './Sections/VideoSection'
-import NewEvent from "views/NewEvent/Sections/EventSection";
+import NewEvent from "views/NewEvents/Sections/EventSection";
 
 const dashboardRoutes = [];
 
@@ -39,7 +36,7 @@ export default function  Home(props) {
       <Header
         color="transparent"
         routes={dashboardRoutes}
-        brand={<img src={image1} alt="" height="50" width="140"></img>}
+        brand={<img src={image1} alt="" height="50" width="170"></img>}
         rightLinks={<HeaderLinks className='navbarClass'/>}
         fixed
         changeColorOnScroll={{
@@ -48,12 +45,13 @@ export default function  Home(props) {
         }}
         {...rest}
       />
-       <Parallax >
+       {/* <Parallax >
         <div className={classes.container}>
           <VideoSection/>
         </div>
-      </Parallax>
-      <div id="section" className={classNames(classes.main, classes.mainRaised)}>
+      </Parallax> */}
+      <NewParallax/>
+      <div className={ classNames(classes.main, classes.mainRaised,"section")}>
         <div className={classes.container}>
         <GridContainer>
             <GridItem>
@@ -63,7 +61,7 @@ export default function  Home(props) {
             </GridItem>
           </GridContainer>
           <NewEvent />
-          <WorkSection />
+         
         </div>
       </div>
       <Footer />

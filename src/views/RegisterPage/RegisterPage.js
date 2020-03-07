@@ -61,7 +61,7 @@ export default function RegisterPage(props) {
           <GridContainer justify="center">
             <GridItem xs={12} sm={12} md={8}>
               <Card className={classes[cardAnimaton]}>
-                <form className={classes.form}>
+                <form className={classes.form} action="http://localhost:5000/api/users">
                   <CardHeader color="info" className={classes.cardHeader}>
                     <h4>Sign Up</h4>
                     <div className={classes.socialLine}>

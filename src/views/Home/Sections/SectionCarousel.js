@@ -36,7 +36,7 @@ export default function SectionCarousel() {
     <div className={classes.section}>
       <div className={classes.container}>
         <GridContainer>
-          <GridItem xs={12} sm={12} md={8} className={classes.marginAuto}>
+          <GridItem xs={12} sm={12} md={12} className={classes.marginAuto}>
             <Card carousel>
               <Carousel {...settings}>
                 <div>
@@ -44,7 +44,8 @@ export default function SectionCarousel() {
                   <div className="slick-caption">
                     <h4>
                       <LocationOn className="slick-icons" />
-                      Yellowstone National Park, United States
+                      Sprendlingen
+                      Municipality in Rhineland-Palatinate
                     </h4>
                   </div>
                 </div>
@@ -57,7 +58,8 @@ export default function SectionCarousel() {
                   <div className="slick-caption">
                     <h4>
                       <LocationOn className="slick-icons" />
-                      Somewhere Beyond, United States
+                      BregenzCity in Austria
+ 
                     </h4>
                   </div>
                 </div>
