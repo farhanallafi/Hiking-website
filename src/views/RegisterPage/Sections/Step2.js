@@ -3,7 +3,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
 
-
+import onChange from '../RegisterPage'
 
 // @material-ui/icons
 
@@ -35,33 +35,100 @@ const useStylesbasic = makeStyles(stylesbasic);
 
 
 export default function RegisterPage(props) {
+  const [german,setGerman]=React.useState(false)
+  const [english,setEnglish]=React.useState(false)
+  const [arabic,setArabic]=React.useState(false)
+
+  const [data,setData]=React.useState({
+    city: "",
+    member: false,
+    gender: "",
+    profession: "",
+    daynumber: "",
+    vegetarian: false,
+  })
+
+  let {
+    city,
+    member,
+    gender,
+    profession,
+    daynumber,
+    vegetarian
+  }=data
+
   const [selectedEnabled, setSelectedEnabled] = React.useState("b");
-  const [checked, setChecked] = React.useState([24, 22]);
 
-  // checked box
-  const handleToggle = value => {
-    const currentIndex = checked.indexOf(value);
-    const newChecked = [...checked];
+  const handleRadio = (value)=>{
+    handelgender(value)
+    setSelectedEnabled(value)
+  }
 
-    if (currentIndex === -1) {
-      newChecked.push(value);
-    } else {
-      newChecked.splice(currentIndex, 1);
+  const onchange = e => {
+    setData({ ...data, [e.target.name]: e.target.value });
+  };
+
+  const HandelMember = e => {
+    setData({ ...data, member: e.target.checked });
+  };
+  const HandelVegetarian = e => {
+    setData({ ...data, vegetarian: e.target.checked });
+  };
+
+  const handelgender = value => {
+    let selectedGender = "";
+    switch (value) {
+      case "a":
+        selectedGender = "Male";
+        break;
+
+      case "b":
+        selectedGender = "Female";
+        break;
+
+      case "c":
+        selectedGender = "Divers";
+        break;
     }
-    setChecked(newChecked);
+    setData({ ...data, gender: selectedGender });
   };
-  const [profession, setProfession] = React.useState("");
-
-  const handleChange = event => {
-    setProfession(event.target.value);
+  const handleLanguages = e => {
+    switch (e.target.name) {
+      case "german":
+        setGerman(!german)
+        break;
+      case "english":
+        setEnglish(!english)
+        break;
+      case "arabic":
+        setArabic(!arabic)
+        break;
+    }
   };
-  const [checkedA, setCheckedA] = React.useState(true);
-  const [checkedB, setCheckedB] = React.useState(false);
 
-  // const [selectedEnabled, setSelectedEnabled] = React.useState("b");
+  const nextData = async () =>{
+
+
+    let lang = []
+    console.log(german,english,arabic)
+    if(german){
+      lang.push('german')
+    }
+    if(english){
+      lang.push('english')
+    }
+    if(arabic){
+      lang.push('arabic')
+    }
+    console.log(lang)
+
+
+    props.getData({...data,languages:lang})
+  }
+
+
   const classes = useStyles();
   const classesBasic = useStylesbasic();
-
 
   return (
     <div>
@@ -69,11 +136,13 @@ export default function RegisterPage(props) {
         <CustomInput
           labelText="City"
           id="city"
+          onChange={onchange}
           formControlProps={{
             fullWidth: true
           }}
           inputProps={{
             type: "text",
+            name:"city",
             endAdornment: (
               <InputAdornment position="end">
                 <LocationCity className={classes.inputIconsColor} />
@@ -88,9 +157,9 @@ export default function RegisterPage(props) {
           <FormControlLabel
             control={
               <Switch
-                checked={checkedB}
-                onChange={event => setCheckedB(event.target.checked)}
+                onChange={HandelMember}
                 value="checkedB"
+                name="member"
                 classes={{
                   switchBase: classesBasic.switchBase,
                   checked: classesBasic.switchChecked,
@@ -120,9 +189,10 @@ export default function RegisterPage(props) {
             control={
               <Radio
                 checked={selectedEnabled === "a"}
-                onChange={() => setSelectedEnabled("a")}
+                onChange={() => handleRadio("a")}
                 value="a"
-                name="radio button enabled"
+                //  name="radio button enabled"
+                name="gender"
                 aria-label="A"
                 icon={
                   <FiberManualRecord className={classesBasic.radioUnchecked} />
@@ -147,7 +217,7 @@ export default function RegisterPage(props) {
             control={
               <Radio
                 checked={selectedEnabled === "b"}
-                onChange={() => setSelectedEnabled("b")}
+                onChange={() => handleRadio("b")}
                 value="b"
                 name="radio button enabled"
                 aria-label="B"
@@ -173,7 +243,7 @@ export default function RegisterPage(props) {
             control={
               <Radio
                 checked={selectedEnabled === "c"}
-                onChange={() => setSelectedEnabled("c")}
+                onChange={() => handleRadio("c")}
                 value="c"
                 name="radio button enabled"
                 aria-label="C"
@@ -201,8 +271,9 @@ export default function RegisterPage(props) {
           <h5>profession</h5>
         </div>
         <Select
+          name="profession"
           value={profession}
-          onChange={handleChange}
+          onChange={onchange}
           className={classesBasic}
         >
           <MenuItem value="student">Student</MenuItem>
@@ -217,7 +288,8 @@ export default function RegisterPage(props) {
           control={
             <Checkbox
               tabIndex={-1}
-              onClick={() => handleToggle(21)}
+              name="german"
+              onClick={handleLanguages}
               checkedIcon={<Check className={classesBasic.checkedIcon} />}
               icon={<Check className={classesBasic.uncheckedIcon} />}
               classes={{
@@ -233,7 +305,8 @@ export default function RegisterPage(props) {
           control={
             <Checkbox
               tabIndex={-1}
-              onClick={() => handleToggle(21)}
+              name="english"
+              onClick={handleLanguages}
               checkedIcon={<Check className={classesBasic.checkedIcon} />}
               icon={<Check className={classesBasic.uncheckedIcon} />}
               classes={{
@@ -249,7 +322,8 @@ export default function RegisterPage(props) {
           control={
             <Checkbox
               tabIndex={-1}
-              onClick={() => handleToggle(21)}
+              name="arabic"
+              onClick={handleLanguages}
               checkedIcon={<Check className={classesBasic.checkedIcon} />}
               icon={<Check className={classesBasic.uncheckedIcon} />}
               classes={{
@@ -266,8 +340,9 @@ export default function RegisterPage(props) {
           <h5> which day will you join us</h5>
         </div>
         <Select
-          value={profession}
-          onChange={handleChange}
+          name="daynumber"
+          value={daynumber}
+          onChange={onchange}
           className={classesBasic}
         >
           <MenuItem value="first">First Day </MenuItem>
@@ -281,9 +356,9 @@ export default function RegisterPage(props) {
           <FormControlLabel
             control={
               <Switch
-                checked={checkedA}
-                onChange={event => setCheckedA(event.target.checked)}
+              onChange={HandelVegetarian}
                 value="checkedA"
+                name="vegetarian"
                 classes={{
                   switchBase: classes.switchBase,
                   checked: classes.switchChecked,
@@ -306,7 +381,7 @@ export default function RegisterPage(props) {
           </Button>
         </Link>
         <Link to="/register/step3">
-          <Button className="button1" simple color="success" size="lg">
+          <Button  onClick={nextData} className="button1" simple color="success" size="lg">
             next
           </Button>
         </Link>

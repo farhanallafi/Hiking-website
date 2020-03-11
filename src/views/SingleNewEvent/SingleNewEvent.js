@@ -3,7 +3,7 @@ import React from "react";
 import classNames from "classnames";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
-
+import "./style.css"
 // @material-ui/icons
 
 // core components
@@ -11,7 +11,7 @@ import Header from "components/Header/Header.js";
 import Footer from "components/Footer/Footer.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
-// import Button from "components/CustomButtons/Button.js";
+import Button from "components/CustomButtons/Button.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
 import Parallax from "components/Parallax/Parallax.js";
 
@@ -34,7 +34,7 @@ export default function SingleNewEvent(props) {
       <Header
         color="transparent"
         routes={dashboardRoutes}
-        brand={<img src={image1} alt="" height="50" width="140"></img>}
+        brand={<img src={image1} alt="" height="50" width="170" style={{position:"relative",right:"100px"}}></img>}
         rightLinks={<HeaderLinks />}
         fixed
         changeColorOnScroll={{
@@ -52,21 +52,39 @@ export default function SingleNewEvent(props) {
    hoho
               </h4>
               <br />
-              {/* <Button
-                color="danger"
+             {/*  <div className="fixed">
+              <Button
+                color="success"
                 size="lg"
-                href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ref=creativetim"
-                target="_blank"
+                href="/register"
                 rel="noopener noreferrer"
               >
-                <i className="fas fa-play" />
-                Watch video
-              </Button> */}
+                <i className="fas fa-hiking mr-2" />
+               
+                
+                
+                Register Now 
+              </Button>
+              </div> */}
             </GridItem>
           </GridContainer>
         </div>
       </Parallax>
       <div className={classNames(classes.main, classes.mainRaised)}>
+      <div className="fixed-bottom fixedbutton">
+              <Button
+                color="success"
+                size="lg"
+                href="/register"
+                rel="noopener noreferrer"
+              >
+                <i className="fas fa-hiking mr-2" />
+               
+                
+                
+                Register Now 
+              </Button>
+              </div>
         <div className={classes.container}>
           <TextSection title={name}/>
         </div>

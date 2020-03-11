@@ -36,7 +36,7 @@ export default function  Home(props) {
       <Header
         color="transparent"
         routes={dashboardRoutes}
-        brand={<img src={image1} alt="" height="50" width="170"></img>}
+        brand={<img src={image1} alt="" height="50" width="170" style={{position:"relative",right:"100px"}} ></img>}
         rightLinks={<HeaderLinks className='navbarClass'/>}
         fixed
         changeColorOnScroll={{

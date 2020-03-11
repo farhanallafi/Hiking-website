@@ -38,7 +38,7 @@ export default function LoginPage(props) {
       <Header
         absolute
         color="transparent"
-        brand={<img src={image1} alt="" height="50" width="140"></img>}
+        brand={<img src={image1} alt="" height="50" width="170" style={{position:"relative",right:"100px"}}></img>}
         rightLinks={<HeaderLinks />}
         {...rest}
       />

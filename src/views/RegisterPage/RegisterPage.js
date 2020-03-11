@@ -1,13 +1,12 @@
-import React  from "react";
+import React from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 // import InputAdornment from "@material-ui/core/InputAdornment";
 // import Icon from "@material-ui/core/Icon";
-//import autocomplete and textfield 
+//import autocomplete and textfield
 // import TextField from '@material-ui/core/TextField';
 // import Autocomplete from '@material-ui/lab/Autocomplete';
-
-
+import useState from "react";
 // core components
 import Header from "components/Header/Header.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
@@ -23,7 +22,7 @@ import CardHeader from "components/Card/CardHeader.js";
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 import image from "assets/img/bg7.jpg";
 import image1 from "assets/img/color.png";
-import {Switch,Route} from "react-router-dom"
+import { Switch, Route } from "react-router-dom";
 
 import Datainfo from "./Sections/datainfo";
 import Step1 from "./Sections/Step1";
@@ -34,6 +33,58 @@ const useStyles = makeStyles(styles);
 
 export default function RegisterPage(props) {
   const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
+  const [user, setUser] = React.useState({
+    firstname: "",
+    lastname: "",
+    dateofbirth: "",
+    country: "",
+    phone: "",
+    email: "",
+    password: "",
+    password2: "",
+    city: "",
+    member: "",
+    gender: "",
+    profession: "",
+    languages: "",
+    daynumber: "",
+    vegetarian: "",
+    hobbies: "",
+    participate: "",
+    howknowaboutus: "",
+    helthproblems: "",
+    notifiedemail: ""
+  });
+  const {
+    firstname,
+    lastname,
+    dateofbirth,
+    country,
+    phone,
+    email,
+    password,
+    password2,
+    city,
+    member,
+    gender,
+    profession,
+    languages,
+    daynumber,
+    vegetarian,
+    hobbies,
+    participate,
+    howknowaboutus,
+    helthproblems,
+    notifiedemail
+  } = user;
+  const getData = async (data)=>{
+    console.log(data)
+    setUser({...user,...data})
+    
+  }
+
+  console.log(user);
+  
   setTimeout(function() {
     setCardAnimation("");
   }, 700);
@@ -45,7 +96,7 @@ export default function RegisterPage(props) {
       <Header
         absolute
         color="transparent"
-        brand={<img src={image1} alt="" height="50" width="140"></img>}
+        brand={<img src={image1} alt="" height="50" width="170" style={{position:"relative",right:"100px"}}></img>}
         rightLinks={<HeaderLinks />}
         {...rest}
       />
@@ -61,7 +112,7 @@ export default function RegisterPage(props) {
           <GridContainer justify="center">
             <GridItem xs={12} sm={12} md={8}>
               <Card className={classes[cardAnimaton]}>
-                <form className={classes.form} action="http://localhost:5000/api/users">
+                <form className={classes.form} action="/api/users">
                   <CardHeader color="info" className={classes.cardHeader}>
                     <h4>Sign Up</h4>
                     <div className={classes.socialLine}>
@@ -96,22 +147,20 @@ export default function RegisterPage(props) {
                   </CardHeader>
                   <p className={classes.divider}>or just sign up </p>
                   <Switch>
-                  <Route path="/register" exact> 
-                      <Datainfo/>
+                    <Route path="/register" exact>
+                      <Datainfo />
                     </Route>
-                    <Route path="/register/step1" exact> 
-                      <Step1/>
+                    <Route path="/register/step1" exact>
+                      <Step1 getData={getData}/>
                     </Route>
                     <Route path="/register/step2">
-                      <Step2/>
+                      <Step2   getData={getData}
+                      />
                     </Route>
                     <Route path="/register/step3">
-                      <Step3/>
+                      <Step3  getData={getData} />
                     </Route>
-                  
                   </Switch>
-           
-               
                 </form>
               </Card>
             </GridItem>

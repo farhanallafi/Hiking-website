@@ -7,7 +7,7 @@ import Icon from "@material-ui/core/Icon";
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 
-
+import {onChange} from '../RegisterPage'
 
 
 // @material-ui/icons
@@ -53,7 +53,36 @@ function countryToFlag(isoCode) {
     : isoCode;
 }
 export default function RegisterPage(props) {
-  
+ 
+  const [data,setData]=React.useState({
+    firstname: "",
+    lastname: "",
+    dateofbirth: "",
+    country: "",
+    phone: "",
+    email: "",
+    password: "",
+    password2: ""
+  })
+  let {
+    firstname,
+    lastname,
+    dateofbirth,
+    country,
+    phone,
+    email,
+    password,
+    password2
+  }=data
+
+  const onchange = e => {
+    setData({ ...data, [e.target.name]: e.target.value });
+  };
+
+  const handleCountries = (e,value)=>{
+    setData({ ...data, country:value.label})
+
+  }
 
   const onFocus = (e) => {
     return (e.target.type = 'date')
@@ -63,6 +92,9 @@ export default function RegisterPage(props) {
     return (e.target.type = 'text')
   }
 
+  const nextData = () =>{
+    props.getData(data)
+  }
 
   // const [selectedEnabled, setSelectedEnabled] = React.useState("b");
   const classes = useStyles();
@@ -75,10 +107,12 @@ export default function RegisterPage(props) {
                     <CustomInput
                       labelText="First Name..."
                       id="first"
+                      onChange={onchange}
                       formControlProps={{
                         fullWidth: true
                       }}
                       inputProps={{
+                        name:"firstname",
                         type: "text",
                         endAdornment: (
                           <InputAdornment position="end">
@@ -90,10 +124,12 @@ export default function RegisterPage(props) {
                      <CustomInput
                       labelText="Last Name..."
                       id="last"
+                      onChange={onchange}
                       formControlProps={{
                         fullWidth: true
                       }}
                       inputProps={{
+                        name:"lastname",
                         type: "text",
                         endAdornment: (
                           <InputAdornment position="end">
@@ -105,12 +141,14 @@ export default function RegisterPage(props) {
                        <CustomInput
                       labelText="Date of Birth..."
                       id="birthdate"
+                      onChange={onchange}
                       formControlProps={{
                         fullWidth: true
                       }}
                       onFocus={onFocus}
                       onBlur = {onBlur}
                       inputProps={{
+                        name:"dateofbirth",
                         type: "text",
                         endAdornment: (
                           <InputAdornment position="end">
@@ -125,22 +163,23 @@ export default function RegisterPage(props) {
                    <br/>
                     <Autocomplete
                         id="country-select-demo"
+                        name="country"
                         style={{ width: 300 }}
                         options={countries}
                         classes={{
                           option: classesFlag.option,
                         }}
+                        onChange={handleCountries}
                         autoHighlight
                         getOptionLabel={option => option.label}
                         renderOption={option => (
-                          <React.Fragment>
-                            <span>{countryToFlag(option.code)}</span>
-                            {option.label} ({option.code}) +{option.phone}
-                          </React.Fragment>
+                            <p><span>{countryToFlag(option.code)}</span>
+                            {option.label} ({option.code}) +{option.phone}</p>
                         )}
                         renderInput={params => (
                           <TextField
                             {...params}
+                            
                             label="Choose a country"
                             variant="outlined"
                             inputProps={{
@@ -153,11 +192,13 @@ export default function RegisterPage(props) {
                      <CustomInput
                       labelText="Phone..."
                       id="Phone"
+                      onChange={onchange}
                       formControlProps={{
                         fullWidth: true
                       }}
                       inputProps={{
                         type: "text",
+                        name:"phone",
                         endAdornment: (
                           <InputAdornment position="end">
                             <PhoneIcon className={classes.inputIconsColor} />
@@ -168,11 +209,13 @@ export default function RegisterPage(props) {
                     <CustomInput
                       labelText="Email..."
                       id="email"
+                      onChange={onchange}
                       formControlProps={{
                         fullWidth: true
                       }}
                       inputProps={{
                         type: "email",
+                        name:"email",
                         endAdornment: (
                           <InputAdornment position="end">
                             <Email className={classes.inputIconsColor} />
@@ -183,11 +226,13 @@ export default function RegisterPage(props) {
                     <CustomInput
                       labelText="Password"
                       id="pass"
+                      onChange={onchange}
                       formControlProps={{
                         fullWidth: true
                       }}
                       inputProps={{
                         type: "password",
+                        name:"password",
                         endAdornment: (
                           <InputAdornment position="end">
                             <Icon className={classes.inputIconsColor}>
@@ -201,11 +246,13 @@ export default function RegisterPage(props) {
                     <CustomInput
                       labelText=" Confirm Password"
                       id="pass"
+                      onChange={onchange}
                       formControlProps={{
                         fullWidth: true
                       }}
                       inputProps={{
                         type: "password",
+                        name:"password2",
                         endAdornment: (
                           <InputAdornment position="end">
                             <Icon className={classes.inputIconsColor}>
@@ -229,7 +276,7 @@ export default function RegisterPage(props) {
                          </Button>
                   </Link>
                   <Link to ="/register/step2">
-                        <Button className="button1" simple color="success" size="lg">
+                        <Button onClick={nextData} className="button1" simple color="success" size="lg">
                                     Next
                          </Button>
                   </Link>

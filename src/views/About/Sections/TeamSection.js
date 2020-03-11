@@ -37,7 +37,8 @@ export default function TeamSection() {
   return (
     <div className={classes.section}>
       <h2 className={classes.title}>Here is our team</h2>
-      <div>
+      <div className="team">
+      <p >
         <GridContainer>
           <GridItem xs={12} sm={12} md={4}>
             <Card plain>
@@ -45,16 +46,18 @@ export default function TeamSection() {
                 <img src={team4} alt="..." className={imageClasses} />
               </GridItem>
               <h4 className={classes.cardTitle}>
-              Houssam Albitar
+                Houssam Al Bitar
                 <br />
-                <small className={classes.smallTitle}>Model</small>
+                <small className={classes.smallTitle}>Organiser</small>
               </h4>
               <CardBody>
                 <p className={classes.description}>
-                  You can write here details about one of your team members. You
-                  can give more details about what they do. Feel free to add
-                  some <a href="#pablo">links</a> for people to be able to
-                  follow them outside the site.
+                  Born 1975 Lives in Sweden Jönköping Has a PhD. in Robotics and
+                  works in Research and Development Departement at Husqvarna
+                  group AB (Sweden Huskvarna). One of the organisers of Vorwärts
+                  Team-Europa. Intersted in activities related to culture,
+                  nature and enviroment. Curios about learning new things,
+                  discovering new places and meeting new people.
                 </p>
               </CardBody>
               <CardFooter className={classes.justifyCenter}>
@@ -88,9 +91,9 @@ export default function TeamSection() {
                 <img src={team7} alt="..." className={imageClasses} />
               </GridItem>
               <h4 className={classes.cardTitle}>
-              Samer Hamati
+                Samer Hamati
                 <br />
-                <small className={classes.smallTitle}>Model</small>
+                <small className={classes.smallTitle}>Organiser</small>
               </h4>
               <CardBody>
                 <p className={classes.description}>
@@ -131,9 +134,9 @@ export default function TeamSection() {
                 <img src={team8} alt="..." className={imageClasses} />
               </GridItem>
               <h4 className={classes.cardTitle}>
-              Farhan Allafi
+                Farhan Allafi
                 <br />
-                <small className={classes.smallTitle}>Model</small>
+                <small className={classes.smallTitle}>Organiser</small>
               </h4>
               <CardBody>
                 <p className={classes.description}>
@@ -174,16 +177,18 @@ export default function TeamSection() {
                 <img src={team5} alt="..." className={imageClasses} />
               </GridItem>
               <h4 className={classes.cardTitle}>
-              Mariam Bachich
+                Mariam Bachich
                 <br />
-                <small className={classes.smallTitle}>Model</small>
+                <small className={classes.smallTitle}>Organiser</small>
               </h4>
               <CardBody>
                 <p className={classes.description}>
-                  You can write here details about one of your team members. You
-                  can give more details about what they do. Feel free to add
-                  some <a href="#pablo">links</a> for people to be able to
-                  follow them outside the site.
+                  Mariam has BA in civil engineering and MA in World Heritage
+                  Studies- Heritage Management. (Main interest local
+                  participation in heritage management). She lives in Berlin and
+                  works in Heritage field. One of the initiator and organizers
+                  of Forward-Europa Team. Interested in nature, culture, and
+                  spirituality.
                 </p>
               </CardBody>
               <CardFooter className={classes.justifyCenter}>
@@ -217,16 +222,17 @@ export default function TeamSection() {
                 <img src={team6} alt="..." className={imageClasses} />
               </GridItem>
               <h4 className={classes.cardTitle}>
-               Ghiath Bitar
+              Ghiath Al Bitar
                 <br />
-                <small className={classes.smallTitle}>Model</small>
+                <small className={classes.smallTitle}>Organiser</small>
               </h4>
               <CardBody>
                 <p className={classes.description}>
-                  You can write here details about one of your team members. You
-                  can give more details about what they do. Feel free to add
-                  some <a href="#pablo">links</a> for people to be able to
-                  follow them outside the site.
+                  Ghiath is 30 years old, has studied dentistry, masters
+                  in public health. Works as a dentist in Sweden. Has been
+                  active in hiking groups in Syria, Sweden and Germany.
+                  Interested in outdoor activities, culture, politics and music.
+                  One of the organizers in Vorwärts Team-Europa.
                 </p>
               </CardBody>
               <CardFooter className={classes.justifyCenter}>
@@ -260,9 +266,9 @@ export default function TeamSection() {
                 <img src={team1} alt="..." className={imageClasses} />
               </GridItem>
               <h4 className={classes.cardTitle}>
-               Fadi Alnizami
+                Fadi Alnizami
                 <br />
-                <small className={classes.smallTitle}>Model</small>
+                <small className={classes.smallTitle}>Organiser</small>
               </h4>
               <CardBody>
                 <p className={classes.description}>
@@ -303,9 +309,9 @@ export default function TeamSection() {
                 <img src={team2} alt="..." className={imageClasses} />
               </GridItem>
               <h4 className={classes.cardTitle}>
-               saleem Barkel
+                saleem Barkel
                 <br />
-                <small className={classes.smallTitle}>Designer</small>
+                <small className={classes.smallTitle}>Organiser</small>
               </h4>
               <CardBody>
                 <p className={classes.description}>
@@ -339,9 +345,9 @@ export default function TeamSection() {
                 <img src={team3} alt="..." className={imageClasses} />
               </GridItem>
               <h4 className={classes.cardTitle}>
-              Tanja Eickhoff
+                Tanja Eickhoff
                 <br />
-                <small className={classes.smallTitle}>Model</small>
+                <small className={classes.smallTitle}>Organiser</small>
               </h4>
               <CardBody>
                 <p className={classes.description}>
@@ -377,7 +383,9 @@ export default function TeamSection() {
             </Card>
           </GridItem>
         </GridContainer>
+         </p>
       </div>
+     
     </div>
   );
 }

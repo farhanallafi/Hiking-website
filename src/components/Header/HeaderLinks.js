@@ -27,7 +27,6 @@ const myStyle = makeStyles(style);
 
 export default function HeaderLinks(props) {
   const classes = useStyles();
-  console.log(props.className)
   return (
     <List className={`${props.className} ${classes.list}`}>
     <ListItem className={classes.listItem}>
@@ -42,9 +41,28 @@ export default function HeaderLinks(props) {
         
       </ListItem>
       <ListItem className={classes.listItem}>
-      <Link to="/about" className={classes.navLink}>
-       About Us
-        </Link>
+        <CustomDropdown
+          noLiPadding
+          buttonText="About Us"
+          buttonProps={{
+            className: classes.navLink,
+            color: "transparent"
+          }}
+          buttonIcon={Apps}
+          dropdownList={[
+            <Link to="/about" className={classes.dropdownLink}>
+              About Us 
+            </Link>,
+            <Link
+              to="/Member"
+              className={classes.dropdownLink}
+            >
+              Become A Member 
+            </Link>
+            
+           
+          ]}
+        />
       </ListItem>
       <ListItem className={classes.listItem}>
         <CustomDropdown

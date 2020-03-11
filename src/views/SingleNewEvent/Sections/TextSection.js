@@ -60,7 +60,7 @@ export default function TextSection(props) {
   return (
     <div className={classes.section}>
       <GridContainer>
-          <GridItem xs={12} sm={12} md={6}>
+          <GridItem xs={12} sm={12} md={12}>
           <h2 className={classes.title}> {props.title}</h2>
           <h5 className={classes.description}>
           Spain’s Hike 8-16 June 2018 The place: Basque and Catalan regions. About the Hike: A long hike, average difficulty in flat areas and mountains. The program of the hike: Friday , 8th June:We gathered in a sport hall of a school in the city of Pamplona,
@@ -70,26 +70,14 @@ export default function TextSection(props) {
                 the discussion about the topic of the hike. 
           </h5>
           </GridItem>
-          <GridItem xs={12} sm={12} md={6}>
+          <GridItem xs={12} sm={12} md={12}>
          
           </GridItem>
           
-          <GridItem xs={12} sm={12} md={6}>
+          <GridItem xs={12} sm={12} md={12}>
            
           </GridItem>
-          <GridItem xs={12} sm={12} md={6}>
-          <h2 className={classes.title}> hike</h2>
-          <h5 className={classes.description}>
-                Later that evening we had a spiritual encounter in Ignatius church. Monday, 11th June: We were divided in three groups, that the first one went to the city of Saint Sabastian, the second visited a high school in Dorang village where
-                 they talked with the student of the school and then they both presented a cultural activity, while the third group went to Bilbao,
-                 where they visited the Municipal center and one of the universities.They met the prex and some students there,where a discussion and a traditional dance were presented. Tuesday,12th June: The end of the first part of the Hike in Basque region. We moved to the city of Leida in Catalonia,
-                  where we were greeted and welcomed. Then, there was a combined cultural activity. Wednesday,13th June: We moved to Paula de Englesola village, where some pupils welcomed us with nice songs and dances. Then, the hikers were accompanied with people from the village towards Virdo. They walked 27 km.
-                   In the village of Virdo, we were also greeted and traditional dances were shared. Thursday, 14th June: We hiked 4 km towards Tariga, where the Mayor herself welcomed us. Then we had a tour in the city before we took the buses towards Mont Serrate, where we met one of the monks , who introduced us to the monastery. 
-                   We hiked in the surrounding mountains of the monastery for about 5km. In the evening we visited Motestrol village where people welcomed us with a nice song. After that, we attended a cultural activity in the church of the city. At the village square,some children performed a traditional dance. Friday, 15th June: We walked 25 
-                   km from Mont Serrate to Manresa, where a meeting was hold in the church of Saint Ignatius. We spent that evening in the garden of the church singing together and playing music. Saturday, 16th June: The last day .We moved from Manresa to Barcelona and the rest of the day was free for the hikers.
-                    The number of the participants was 83, from Germany, Belgium, Austria, Sweden, Holland, France, and Spain. We would like to thank everyone who helped with the preparations.
-          </h5>
-          </GridItem>
+          
           </GridContainer>
           <Gallery photos={photos} onClick={openLightbox} />
       <ModalGateway>

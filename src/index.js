@@ -16,7 +16,7 @@ import Home from "./views/Home/Home"
 import About from "./views/About/about"
 import NewEvents from "./views/NewEvents/NewEvents"
 import SingleNewEvent from "./views/SingleNewEvent/SingleNewEvent"
-import Test from "views/LoginPage/test.js";
+import Member from "./views/About/Sections/Member";
 import DataProtection from "views/DataProtection/DataProtection";
 import Impressum from "views/Impressum/Impressum";
 import SingleOldEvent from 'views/SingleOldEvent/SingleOldEvent'
@@ -25,7 +25,8 @@ var hist = createBrowserHistory();
 
 ReactDOM.render(
   <Router history={hist}>
-    <Switch>
+    <Switch> 
+     {/*  this is how to add the route for home page and others  */}
   {/* <Route path="/landing-page" component={LandingPage} />*/}
       <Route path="/profile-page" component={ProfilePage} />
       <Route path="/impressum" component={Impressum} />
@@ -37,8 +38,8 @@ ReactDOM.render(
       <Route path="/oldevents" component={OldEvents}/>
       <Route path="/newevents" component={NewEvents}/>
       <Route path="/singlenewevent/:name" component={SingleNewEvent}/>
-      <Route path="/test" component={Test}/>
-      {/*  this is how to add the route for home page and others  */}
+      <Route path="/Member" component={Member}/>
+    
       <Route path="/about" component={About} />
       <Route path="/" component={Home} />
       

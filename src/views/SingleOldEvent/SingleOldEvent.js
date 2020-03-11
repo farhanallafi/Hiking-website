@@ -34,7 +34,7 @@ export default function Hike(props) {
       <Header
         color="transparent"
         routes={dashboardRoutes}
-        brand={<img src={image1} alt="" height="50" width="140"></img>}
+        brand={<img src={image1} alt="" height="50" width="170" style={{position:"relative",right:"100px"}}></img>}
         rightLinks={<HeaderLinks />}
         fixed
         changeColorOnScroll={{

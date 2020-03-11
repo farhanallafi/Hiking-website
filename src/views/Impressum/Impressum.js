@@ -26,7 +26,7 @@ export default function ProfilePage(props) {
     <div>
       <Header
         color="transparent"
-        brand={<img src={image1} alt="" height="50" width="140"></img>}
+        brand={<img src={image1} alt="" height="50" width="170" style={{position:"relative",right:"100px"}}></img>}
         rightLinks={<HeaderLinks />}
         fixed
         changeColorOnScroll={{
@@ -37,12 +37,13 @@ export default function ProfilePage(props) {
       />
       <Parallax small filter image={require("assets/img/profile-bg.jpg")} />
       <div className={classNames(classes.main, classes.mainRaised)}>
-        <div>
+        <div className="impressum">
+        <p>
           <div className={classes.container}>
             <GridContainer justify="center">
               <GridItem xs={12} sm={12} md={10}>
                 <div className={classes.left}>
-                  <h2>IMPRESSUM </h2>
+                 <p> <h2>IMPRESSUM </h2>
                   <h3>ANGABEN GEMÄSS § 5 TMG</h3>
                  <ul><li>Vorwärts Team-Europa e.V.</li> 
                  <li>Kantstraße 15</li>
@@ -112,11 +113,12 @@ export default function ProfilePage(props) {
                   eine Urheberrechtsverletzung aufmerksam werden, bitten wir um
                   einen entsprechenden Hinweis. Bei Bekanntwerden von
                   Rechtsverletzungen werden wir derartige Inhalte umgehend
-                  entfernen.
+                  entfernen.</p>
                 </div>
               </GridItem>
             </GridContainer>
           </div>
+          </p>
         </div>
       </div>
       <Footer />

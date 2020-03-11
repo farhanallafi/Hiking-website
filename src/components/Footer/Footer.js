@@ -30,12 +30,12 @@ export default function Footer(props) {
   return (
     <footer className={footerClasses}>
       <div className={classes.container}>
+      <div className="footer">
           <List className={classes.list}>
             <ListItem className={classes.inlineBlock}>
               <a
-                href="/aboutus"
+                href="/about"
                 className={classes.block}
-                target="_blank"
               >
                 About us
               </a>
@@ -75,6 +75,7 @@ export default function Footer(props) {
           </a>{" "}
           Hike with Passion 
         </div>
+      </div>
       </div>
     </footer>
   );
