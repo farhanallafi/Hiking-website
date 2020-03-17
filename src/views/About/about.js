@@ -34,7 +34,7 @@ export default function LandingPage(props) {
       <Header
         color="transparent"
         routes={dashboardRoutes}
-        brand={<img src={image1} alt="" height="50" width="170" style={{position:"relative",right:"100px"}}></img>}
+        brand={<img src={image1} alt="" height="50" width="170" style={{position:"relative",right:"4vw"}}></img>}
         rightLinks={<HeaderLinks />}
         fixed
         changeColorOnScroll={{
@@ -52,7 +52,7 @@ export default function LandingPage(props) {
               <Button
                 color="danger"
                 size="lg"
-                href="https://www.facebook.com/546279552247346/videos/876570712551560/"
+                href="https://youtu.be/OIgDQnPOWl0"
                 target="_blank"
                 rel="noopener noreferrer"
               >

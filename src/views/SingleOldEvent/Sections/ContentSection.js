@@ -59,15 +59,18 @@ export default function TextSection(props) {
 
   return (
     <div className={classes.section}>
+    <div className="contenentSection">
+    
       <GridContainer>
           <GridItem xs={12} sm={12} md={12}>
           <h2 className={classes.title}> {props.title}</h2>
           <h5 className={classes.description}>
-          Spain’s Hike 8-16 June 2018 The place: Basque and Catalan regions. About the Hike: A long hike, average difficulty in flat areas and mountains. The program of the hike: Friday , 8th June:We gathered in a sport hall of a school in the city of Pamplona,
+          <p>Spain’s Hike 8-16 June 2018 The place: Basque and Catalan regions. About the Hike: A long hike, average difficulty in flat areas and mountains. The program of the hike: Friday , 8th June:We gathered in a sport hall of a school in the city of Pamplona,
                where we were welcomed with a touristic tour by the hosts to get to know the city. , Saturday, 9th June: We hiked for 8 km from the village of Saint Josee to Javier,
                 where we visited the castle of Javier. Afterwards, we discussed the topic of the hike in groups. Later in the evening ,there was a collective cultural musical program. Sunday, 10th June: We walked about 13 km from Isporthor to Loyola, where an official 
                 reception was prepared for us in presense of the president of Basque and other public figures in addition to the citizens of the city, who had joined us walking. Greeting speech were recited followed by a cultural program. In the evening, the groups continued 
-                the discussion about the topic of the hike. 
+                the discussion about the topic of the hike.
+          </p>
           </h5>
           </GridItem>
           <GridContainer>
@@ -80,7 +83,7 @@ export default function TextSection(props) {
           <GridItem xs={12} sm={12} md={12}>
           <h2 className={classes.title}> </h2>
           <h5 className={classes.description}>
-                Later that evening we had a spiritual encounter in Ignatius church. Monday, 11th June: We were divided in three groups, that the first one went to the city of Saint Sabastian, the second visited a high school in Dorang village where
+               <p> Later that evening we had a spiritual encounter in Ignatius church. Monday, 11th June: We were divided in three groups, that the first one went to the city of Saint Sabastian, the second visited a high school in Dorang village where
                  they talked with the student of the school and then they both presented a cultural activity, while the third group went to Bilbao,
                  where they visited the Municipal center and one of the universities.They met the prex and some students there,where a discussion and a traditional dance were presented. Tuesday,12th June: The end of the first part of the Hike in Basque region. We moved to the city of Leida in Catalonia,
                   where we were greeted and welcomed. Then, there was a combined cultural activity. Wednesday,13th June: We moved to Paula de Englesola village, where some pupils welcomed us with nice songs and dances. Then, the hikers were accompanied with people from the village towards Virdo. They walked 27 km.
@@ -88,9 +91,13 @@ export default function TextSection(props) {
                    We hiked in the surrounding mountains of the monastery for about 5km. In the evening we visited Motestrol village where people welcomed us with a nice song. After that, we attended a cultural activity in the church of the city. At the village square,some children performed a traditional dance. Friday, 15th June: We walked 25 
                    km from Mont Serrate to Manresa, where a meeting was hold in the church of Saint Ignatius. We spent that evening in the garden of the church singing together and playing music. Saturday, 16th June: The last day .We moved from Manresa to Barcelona and the rest of the day was free for the hikers.
                     The number of the participants was 83, from Germany, Belgium, Austria, Sweden, Holland, France, and Spain. We would like to thank everyone who helped with the preparations.
-          </h5>
-          </GridItem>
+              </p> 
+           </h5>
+         
+          </GridItem> 
           </GridContainer>
+         
+        </div>
           <Gallery photos={photos} onClick={openLightbox} />
       <ModalGateway>
         {viewerIsOpen ? (

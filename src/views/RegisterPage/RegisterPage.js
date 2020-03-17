@@ -96,7 +96,7 @@ export default function RegisterPage(props) {
       <Header
         absolute
         color="transparent"
-        brand={<img src={image1} alt="" height="50" width="170" style={{position:"relative",right:"100px"}}></img>}
+        brand={<img src={image1} alt="" height="50" width="170" style={{position:"relative",right:"4vw"}}></img>}
         rightLinks={<HeaderLinks />}
         {...rest}
       />
@@ -108,9 +108,11 @@ export default function RegisterPage(props) {
           backgroundPosition: "top center"
         }}
       >
+      
         <div className={classes.container}>
           <GridContainer justify="center">
             <GridItem xs={12} sm={12} md={8}>
+            <div className="addSec">
               <Card className={classes[cardAnimaton]}>
                 <form className={classes.form} action="/api/users">
                   <CardHeader color="info" className={classes.cardHeader}>
@@ -163,10 +165,14 @@ export default function RegisterPage(props) {
                   </Switch>
                 </form>
               </Card>
+              </div>
             </GridItem>
+            
           </GridContainer>
+        
         </div>
-        <Footer whiteFont />
+           <Footer whiteFont />
+      
       </div>
     </div>
   );

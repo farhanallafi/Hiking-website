@@ -38,7 +38,7 @@ export default function LoginPage(props) {
       <Header
         absolute
         color="transparent"
-        brand={<img src={image1} alt="" height="50" width="170" style={{position:"relative",right:"100px"}}></img>}
+        brand={<img src={image1} alt="" height="50" width="170" style={{position:"relative",right:"4vw"}}></img>}
         rightLinks={<HeaderLinks />}
         {...rest}
       />
@@ -53,6 +53,7 @@ export default function LoginPage(props) {
         <div className={classes.container}>
           <GridContainer justify="center">
             <GridItem xs={12} sm={12} md={4}>
+            <div className="addSec">
               <Card className={classes[cardAnimaton]}>
                 <form className={classes.form}>
                   <CardHeader color="primary" className={classes.cardHeader}>
@@ -145,6 +146,7 @@ export default function LoginPage(props) {
                   </CardFooter>
                 </form>
               </Card>
+              </div>
             </GridItem>
           </GridContainer>
         </div>

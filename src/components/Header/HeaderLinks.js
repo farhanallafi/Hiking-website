@@ -91,16 +91,18 @@ export default function HeaderLinks(props) {
       <ListItem className={classes.listItem}>
         <CustomDropdown
           noLiPadding
-          buttonText="Sign up or Login"
+          buttonText="Sign up"
           buttonProps={{
             className: classes.navLink,
             color: "transparent"
           }}
           buttonIcon={Apps}
           dropdownList={[
-            <a href="/login" className={classes.dropdownLink}>
+            <Link
+            to="/login" className={classes.dropdownLink}>
              Login
-            </a>,
+             
+            </Link>,
             <Link
               to="/register"
               className={classes.dropdownLink}
@@ -123,7 +125,7 @@ export default function HeaderLinks(props) {
           <IconButton aria-label="Delete">
             <DeleteIcon />
           </IconButton>
-        </Tooltip>*/}
+        </Tooltip>
         <Tooltip 
           id="instagram-twitter"
           title="Follow us on twitter"
@@ -172,7 +174,7 @@ export default function HeaderLinks(props) {
           >
             <i className={classes.socialIcons + " fab fa-instagram"} />
           </Button>
-        </Tooltip>
+        </Tooltip>*/}
       </ListItem>
     </List>
   );

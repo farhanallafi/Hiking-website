@@ -8,6 +8,8 @@ import classNames from "classnames";
 import { List, ListItem } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import {Link} from "react-router-dom";
+import Tooltip from "@material-ui/core/Tooltip";
+import Button from "components/CustomButtons/Button.js";
 // @material-ui/icons
 import Favorite from "@material-ui/icons/Favorite";
 import GridContainer from "components/Grid/GridContainer.js";
@@ -18,7 +20,7 @@ const useStyles = makeStyles(styles);
 
 export default function Footer(props) {
   const classes = useStyles();
-  const { whiteFont } = props;
+  const { whiteFont,footerClass } = props;
   const footerClasses = classNames({
     [classes.footer]: true,
     [classes.footerWhiteFont]: whiteFont
@@ -30,7 +32,7 @@ export default function Footer(props) {
   return (
     <footer className={footerClasses}>
       <div className={classes.container}>
-      <div className="footer">
+      <div className={footerClass}>
           <List className={classes.list}>
             <ListItem className={classes.inlineBlock}>
               <a
@@ -54,7 +56,68 @@ export default function Footer(props) {
                 Impressum
               </Link>
             </ListItem>
-          </List>
+         </List>
+
+         
+            
+          
+          
+         <List className={classes.list}>
+         <ListItem className={classes.inlineBlock}>
+        <Tooltip 
+          id="instagram-twitter"
+          title="Follow us on twitter"
+          placement={window.innerWidth > 959 ? "top" : "left"}
+          classes={{ tooltip: classes.tooltip }}
+        >
+        
+          <Button
+            href="https://twitter.com/Forwardsteameur"
+            target="_blank"
+            color="transparent"
+            className={classes.navLink}
+          >
+            <i  style={{fontSize:'33px',color:"#00acee"}} className={classes.socialIcons + " fab fa-twitter"} />
+          </Button>
+        </Tooltip>
+        </ListItem>
+ 
+      <ListItem className={classes.inlineBlock}>
+        <Tooltip
+          id="instagram-facebook"
+          title="Follow us on facebook" style={{fontSize:'33px'}}
+          placement={window.innerWidth > 959 ?  "top" : "left"}
+          classes={{ tooltip: classes.tooltip }}
+        >
+          <Button
+            color="transparent"
+            href="https://www.facebook.com/%D9%81%D8%B1%D9%8A%D9%82-%D8%A5%D9%84%D9%89-%D8%A7%D9%84%D8%A3%D9%85%D8%A7%D9%85-%D8%A3%D9%88%D8%B1%D9%88%D8%A8%D8%A7-Vorw%C3%A4rts-Team-Europa-546279552247346/"
+            target="_blank"
+            className={classes.navLink}
+          >
+            <i  style={{fontSize:'33px',color:'#3b5998'}} className={classes.socialIcons + " fab fa-facebook"} />
+          </Button>
+        </Tooltip>
+      </ListItem>
+      <ListItem className={classes.inlineBlock}>
+        <Tooltip
+          id="instagram-tooltip"
+          title="Follow us on instagram"
+          placement={window.innerWidth > 959 ? "top" : "left"}
+          classes={{ tooltip: classes.tooltip }}
+        >
+          <Button
+            color="transparent"
+            href="https://www.instagram.com/forwardsteam/"
+            target="_blank"
+            className={classes.navLink}
+          >
+            <i style={{fontSize:'33px',color:"#bc2a8d"}} className={classes.socialIcons + " fab fa-instagram fa-3x fa-fw "} />
+          </Button>
+        </Tooltip>
+         </ListItem> 
+       </List>
+      
         <div className={classes.center}> 
         <div style={{fontWeight:'bold'}}>
         <p>Vorwärts-Team Europa.e.V</p>
@@ -84,3 +147,4 @@ export default function Footer(props) {
 Footer.propTypes = {
   whiteFont: PropTypes.bool
 };
+   
