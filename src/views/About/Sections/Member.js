@@ -37,24 +37,39 @@ export default function ProfilePage(props) {
         }}
         {...rest}
       />
-      <Parallax small filter image={require("assets/img/profile-bg.jpg")} />
+      <Parallax small filter image={require("assets/img/Trier/image04.jpg")} />
       <div className={classNames(classes.main, classes.mainRaised)}>
         <div>
           <div className={classes.container}>
             <GridContainer justify="center">
               <GridItem xs={12} sm={12} md={10}>
                 <div className={classes.left}>
-                  <h3>
-                    The Alpine Club is the largest alpine association and the
-                    largest youth organization in Austria. He motivates and
-                    trains people to practice various mountain sports such as
-                    hiking, mountaineering, climbing, ski tours, mountain
-                    biking. In addition to his expertise, he also provides the
-                    necessary infrastructure such as Alpine club huts, trails
-                    and climbing facilities. As a "lawyer for the Alps", he
-                    ensures that nature is preserved in its beauty and
-                    originality and remains generally accessible in the future.
-                  </h3>
+                <div className="member">
+                <p>
+                 
+                    <h3>   Why should I be member in “Forward Team- Europe” club?</h3>
+                        <ul>      
+                        <li> Because I believe in the group mission and its goals.</li> 
+                        <li> To support the group actively by: </li> 
+                        <li>Taking more responsibilities in the activities. </li> 
+                        <li>Taking part in developing strategies and plans for the group.</li> 
+                        <li>To benefit from the reduction fees for members in our activities. </li>
+                        <li>To be able to take part in the members special events (Hikes, trips, …)</li> 
+                        <li>To stay connected with the group and informed about the latest updates. </li>
+                        </ul> 
+                      <br></br>
+                   <h3> ما هي الأسباب التي تدفعني لأصبح عضو في جمعية "إلى الأمام – أوربا" ؟ </h3>
+                      <ul>
+                      <li>  لأني أؤمن برسالة الفريق و الأهداف التي يسعى لتحقيقها. </li>
+                      <li>  لكي أدعم الجماعة بشكل فعال من خلال: </li>
+                      <li>  المشاركة بمهام أكبر خلال النشاطات </li> 
+                      <li>  المساهمة بوضع استراتيجية و خطط عمل للفريق</li> 
+                      <li>  للإستفادة من التخفيضات المالية للأعضاء في النشاطات المتنوعة</li>
+                      <li>  لأستطيع المشاركة بالنشاطات الخاصة بالأعضاء ( مسيرات ، رحلات ، ....) </li>
+                      <li>  لأبقى على تواصل مع الفريق من خلال إعلامي بآخر الأخبار و النشاطات. </li>
+                  </ul> 
+                  </p>
+                  </div>
                 </div>
                 <div className="fixed">
               <Button

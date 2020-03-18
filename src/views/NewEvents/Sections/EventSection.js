@@ -30,6 +30,7 @@ export default function ProductSection() {
   const classes = useStyles();
   const classesImages = useStylesImages();
   return (
+    
     <div id="newevent" className={classes.section}>
       <GridContainer justify="center">
         <GridItem xs={12} sm={12} md={8}>
@@ -86,6 +87,7 @@ export default function ProductSection() {
           <GridContainer />
         </div>
         </GridContainer>
+        
       </div>
     </div>
   );

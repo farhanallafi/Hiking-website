@@ -40,7 +40,7 @@ export default function  OldEvents(props) {
         }}
         {...rest}
       />
-       <Parallax image={require("assets/img/bg33.jpg")}>
+       <Parallax image={require("assets/img/Spain/image3.jpg")}>
         <div className={classes.container}>
           
         </div>

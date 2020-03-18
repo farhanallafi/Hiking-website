@@ -40,17 +40,20 @@ export default function  NewEvents(props) {
         }}
         {...rest}
       />
-       <Parallax image={require("assets/img/bg33.jpg")}>
+     
+       <Parallax image={require("assets/img/Spain/image21.jpg")}>
         <div className={classes.container}>
           
         </div>
       </Parallax>
-      <div id="section" className={classNames(classes.main, classes.mainRaised)}>
+     
+      <div className={classNames(classes.main, classes.mainRaised)}>
         <div className={classes.container}>
         
            <EventSection /> 
         </div>
       </div>
+     
       <Footer />
     </div>
   );
