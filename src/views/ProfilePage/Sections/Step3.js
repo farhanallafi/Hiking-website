@@ -43,10 +43,10 @@ export default function ProfilePage(props) {
   
 
   const [data,setData]=React.useState({
-    participate: false,
-    howknowaboutus: "",
-    helthproblems: "",
-    notifiedemail: false
+    participate:  props.step3Data.participate,
+    howknowaboutus: props.step3Data.howknowaboutus,
+    helthproblems: props.step3Data.helthproblems,
+    notifiedemail: props.step3Data.notifiedemail
   })
 
   let {
@@ -310,14 +310,14 @@ export default function ProfilePage(props) {
         
       </CardBody>
       <CardFooter className={classes.cardFooter}>
-        <Link to="/profile-page/step2">
+        <Link to="/profile-page/step2"> 
           <Button className="button" simple color="danger" size="lg">
             Back
           </Button>
         </Link>
-        <Link to="/profile-page/step3">
+        <Link to="/profile-page">
           <Button onClick={nextData}  type="submit" className="button1" simple color="danger" size="lg">
-            Submit
+            Save Changes
           </Button>
         </Link>
       </CardFooter>

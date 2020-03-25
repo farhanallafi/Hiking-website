@@ -6,7 +6,7 @@ import Icon from "@material-ui/core/Icon";
 //import autocomplete and textfield 
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-
+ 
 import {onChange} from '../ProfilePage'
 
 
@@ -55,14 +55,14 @@ function countryToFlag(isoCode) {
 export default function ProfilePage(props) {
  
   const [data,setData]=React.useState({
-    firstname: "",
-    lastname: "",
-    dateofbirth: "",
-    country: "",
-    phone: "",
-    email: "",
-    password: "",
-    password2: ""
+    firstname: props.step1Data.firstname,
+    lastname:  props.step1Data.lastname,
+    dateofbirth:  props.step1Data.dateofbirth,
+    country:  props.step1Data.country,
+    phone:  props.step1Data.phone,
+    email:  props.step1Data.email,
+    password:  props.step1Data.password,
+    password2:  props.step1Data.password2
   })
   let {
     firstname,
@@ -270,11 +270,12 @@ export default function ProfilePage(props) {
                   </FormControl> */}
                   </CardBody>
                   <CardFooter className={classes.cardFooter}>
-                  <Link to ="/">
+                 
+                  <Link to="/profile-page"> 
                         <Button className="button" simple color="danger" size="lg">
-                                   Cancel
+                                   Back
                          </Button>
-                  </Link>
+                 </Link>
                   <Link to ="/profile-page/step2">
                         <Button onClick={nextData} className="button1" simple color="success" size="lg">
                                     Next

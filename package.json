@@ -10,10 +10,10 @@
     "@material-ui/icons": "4.9.1",
     "@material-ui/lab": "^4.0.0-alpha.44",
     "@material-ui/pickers": "^3.2.10",
-    "formik": "^2.0.4",
-    "yup": "^0.27.0",
     "bootstrap": "^4.4.1",
     "classnames": "2.2.6",
+    "formik": "^2.0.4",
+    "fs": "0.0.1-security",
     "history": "4.9.0",
     "moment": "2.24.0",
     "node-sass": "4.12.0",
@@ -31,7 +31,8 @@
     "react-scripts": "3.1.0",
     "react-slick": "0.25.2",
     "react-swipeable-views": "0.13.3",
-    "react-textfield": "0.0.6"
+    "react-textfield": "0.0.6",
+    "yup": "^0.27.0"
   },
   "devDependencies": {
     "@babel/cli": "7.5.5",
@@ -70,5 +71,5 @@
     ],
     "development": []
   },
-  "proxy":"http://localhost:5000"
+  "proxy": "http://localhost:5000"
 }

@@ -40,12 +40,12 @@ export default function ProfilePage(props) {
   const [arabic,setArabic]=React.useState(false)
 
   const [data,setData]=React.useState({
-    city: "",
-    member: false,
-    gender: "",
-    profession: "",
-    daynumber: "",
-    vegetarian: false,
+    city: props.step2Data.city,
+    member:  props.step2Data.member,
+    gender: props.step2Data.gender,
+    profession: props.step2Data.profession,
+    daynumber: props.step2Data.daynumber,
+    vegetarian:  props.step2Data.vegetarian,
   })
 
   let {
@@ -375,7 +375,7 @@ export default function ProfilePage(props) {
         </div>
       </CardBody>
       <CardFooter className={classes.cardFooter}>
-        <Link to="/profile-page/step1">
+        <Link to="/profile-page/step1"> 
           <Button className="button" simple color="danger" size="lg">
             Back
           </Button>

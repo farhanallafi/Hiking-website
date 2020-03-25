@@ -37,7 +37,7 @@ export default function ProfilePage(props) {
         }}
         {...rest}
       />
-      <Parallax small filter image={require("assets/img/Trier/image04.jpg")} />
+      <Parallax small filter image={require("assets/img/Trier/image14.jpg")} />
       <div className={classNames(classes.main, classes.mainRaised)}>
         <div>
           <div className={classes.container}>

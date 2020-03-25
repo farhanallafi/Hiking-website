@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect,useState} from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // @material-ui/core components
@@ -20,6 +20,8 @@ import styles from "assets/jss/material-kit-react/views/landingPage.js";
 // Sections for this page
 import ContentSection from "./Sections/ContentSection.js";
 import image1 from "assets/img/color.png";
+import apis from "../../api/api"
+
 const dashboardRoutes = [];
 
 const useStyles = makeStyles(styles);
@@ -29,6 +31,29 @@ export default function Hike(props) {
   const classes = useStyles();
   let {name} = props.match.params;
   const { ...rest } = props;
+
+  const[data,setData]=useState(null);
+  let paragraph=""
+  let paragraphAr=""
+  let imageURL= ""
+
+  useEffect( ()=>{
+    if(!data){
+      apis.getOldHike(name).then(response=>{
+      setData(response.data)
+      })
+    }
+    
+  })
+
+  console.log(data)
+
+if(data){
+  paragraph = data.paragraph;
+  paragraphAr = data.paragraphAr;
+  imageURL = data.imageURL
+}
+  
   return (
     <div>
       <Header
@@ -40,7 +65,7 @@ export default function Hike(props) {
         changeColorOnScroll={{
           height: 400,
           color: "white"
-        }}
+        }} 
         {...rest}
       />
       <Parallax filter image={require("assets/img/rhe.jpg")}>
@@ -68,7 +93,7 @@ export default function Hike(props) {
       </Parallax>
       <div className={classNames(classes.main, classes.mainRaised)}>
         <div className={classes.container}>
-          <ContentSection title={name}/>
+          <ContentSection title={name} paragraph={paragraph}  paragraphAr={paragraphAr}  imageURL={imageURL} />
         </div>
       </div>
       <Footer />
