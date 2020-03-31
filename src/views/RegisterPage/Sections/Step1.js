@@ -1,4 +1,4 @@
-import React  from "react";
+import React, {useEffect,useState} from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
@@ -53,19 +53,21 @@ function countryToFlag(isoCode) {
     : isoCode;
 }
 export default function RegisterPage(props) {
- 
+  if(data){
+    console.log('we have data : ',data)
+  }
   const [data,setData]=React.useState({
-    firstname: "",
-    lastname: "",
-    dateofbirth: "",
-    country: "",
-    phone: "",
-    email: "",
-    password: "",
-    password2: ""
+    firstname:props.firstname,
+    lastname: props.lastname,
+    dateofbirth: props.dateofbirth,
+    country: props.country,
+    phone: props.phone,
+    email: props.email,
+    password: props.password,
+    password2: props.password2
   })
   let {
-    firstname,
+    firstname ,
     lastname,
     dateofbirth,
     country,
@@ -74,14 +76,20 @@ export default function RegisterPage(props) {
     password,
     password2
   }=data
+  if(!props.sendData){
+  //  props.backData(data,false)
 
+   }
   const onchange = e => {
+  
     setData({ ...data, [e.target.name]: e.target.value });
   };
 
   const handleCountries = (e,value)=>{
-    setData({ ...data, country:value.label})
-
+    console.log(value)
+    if(value){
+      setData({ ...data, country:value.label})
+    }
   }
 
   const onFocus = (e) => {
@@ -93,8 +101,17 @@ export default function RegisterPage(props) {
   }
 
   const nextData = () =>{
-    props.getData(data)
+    props.getData(data,false)
+    console.log('the form data = ', data)
   }
+  console.log(data)
+
+  let defCountry = ""
+  if (country !== ""){
+    defCountry = countries.find(item => item.label === country)
+
+  }
+
 
   // const [selectedEnabled, setSelectedEnabled] = React.useState("b");
   const classes = useStyles();
@@ -104,15 +121,20 @@ export default function RegisterPage(props) {
     <div>
       
                   <CardBody>
+                    <div>
+                      {props.errors_output}
+                    </div>
                     <CustomInput
                       labelText="First Name..."
                       id="first"
+                       
                       onChange={onchange}
                       formControlProps={{
                         fullWidth: true
                       }}
                       inputProps={{
                         name:"firstname",
+                        value:data.firstname,
                         type: "text",
                         endAdornment: (
                           <InputAdornment position="end">
@@ -131,6 +153,7 @@ export default function RegisterPage(props) {
                       inputProps={{
                         name:"lastname",
                         type: "text",
+                        value:data.lastname,
                         endAdornment: (
                           <InputAdornment position="end">
                             <People className={classes.inputIconsColor} />
@@ -150,6 +173,7 @@ export default function RegisterPage(props) {
                       inputProps={{
                         name:"dateofbirth",
                         type: "text",
+                        value:data.dateofbirth,
                         endAdornment: (
                           <InputAdornment position="end">
                             <EventIcon className={classes.inputIconsColor} />
@@ -169,6 +193,7 @@ export default function RegisterPage(props) {
                         classes={{
                           option: classesFlag.option,
                         }}
+                        defaultValue={defCountry}
                         onChange={handleCountries}
                         autoHighlight
                         getOptionLabel={option => option.label}
@@ -182,6 +207,7 @@ export default function RegisterPage(props) {
                             
                             label="Choose a country"
                             variant="outlined"
+                            
                             inputProps={{
                               ...params.inputProps,
                               autoComplete: 'new-password', // disable autocomplete and autofill
@@ -199,6 +225,7 @@ export default function RegisterPage(props) {
                       inputProps={{
                         type: "text",
                         name:"phone",
+                        value:data.phone,
                         endAdornment: (
                           <InputAdornment position="end">
                             <PhoneIcon className={classes.inputIconsColor} />
@@ -216,6 +243,7 @@ export default function RegisterPage(props) {
                       inputProps={{
                         type: "email",
                         name:"email",
+                        value:data.email,
                         endAdornment: (
                           <InputAdornment position="end">
                             <Email className={classes.inputIconsColor} />
@@ -233,6 +261,7 @@ export default function RegisterPage(props) {
                       inputProps={{
                         type: "password",
                         name:"password",
+                        value:data.password,
                         endAdornment: (
                           <InputAdornment position="end">
                             <Icon className={classes.inputIconsColor}>
@@ -253,6 +282,7 @@ export default function RegisterPage(props) {
                       inputProps={{
                         type: "password",
                         name:"password2",
+                        value:data.password2,
                         endAdornment: (
                           <InputAdornment position="end">
                             <Icon className={classes.inputIconsColor}>

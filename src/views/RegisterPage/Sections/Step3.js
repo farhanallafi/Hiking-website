@@ -35,18 +35,18 @@ const useStylesbasic = makeStyles(stylesbasic);
 
 
 export default function RegisterPage(props) {
-  const [music,setMusic]=React.useState(false)
-  const [acting,setActing]=React.useState(false)
-  const [painting,setPainting]=React.useState(false)
-  const [photography,setPhotography]=React.useState(false)
-  const [cooking,setCooking]=React.useState(false)
+  const [music,setMusic]=React.useState(props.hobbies.indexOf('music')>=0)
+  const [acting,setActing]=React.useState(props.hobbies.indexOf('acting')>=0)
+  const [painting,setPainting]=React.useState(props.hobbies.indexOf('painting')>=0)
+  const [photography,setPhotography]=React.useState(props.hobbies.indexOf('photography')>=0)
+  const [cooking,setCooking]=React.useState(props.hobbies.indexOf('cooking')>=0)
   
 
   const [data,setData]=React.useState({
-    participate: false,
-    howknowaboutus: "",
-    helthproblems: "",
-    notifiedemail: false
+    participate: props.participate,
+    howknowaboutus: props.howknowaboutus,
+    helthproblems: props.helthproblems,
+    notifiedemail: props.notifiedemail
   })
 
   let {
@@ -87,7 +87,7 @@ export default function RegisterPage(props) {
         break;
     }
   };
-  const nextData = async () =>{
+  const nextData = async (sendData) =>{
 
 
     let hobbe = []
@@ -110,7 +110,7 @@ export default function RegisterPage(props) {
     console.log(hobbe)
 
     console.log(data)
-    props.getData({...data,hobbies:hobbe})
+    props.getData({...data,hobbies:hobbe},sendData)
   }
 
 
@@ -138,6 +138,7 @@ export default function RegisterPage(props) {
               tabIndex={-1}
               onClick={handleHobbies}
               name="music"
+              checked={music}
               checkedIcon={<Check className={classesBasic.checkedIcon} />}
               icon={<Check className={classesBasic.uncheckedIcon} />}
               classes={{
@@ -154,6 +155,7 @@ export default function RegisterPage(props) {
             <Checkbox
               tabIndex={-1}
               name="acting"
+              checked={acting}
               onClick={handleHobbies}
               checkedIcon={<Check className={classesBasic.checkedIcon} />}
               icon={<Check className={classesBasic.uncheckedIcon} />}
@@ -171,6 +173,7 @@ export default function RegisterPage(props) {
             <Checkbox
               tabIndex={-1}
               name="painting"
+              checked={painting}
               onClick={handleHobbies}
               checkedIcon={<Check className={classesBasic.checkedIcon} />}
               icon={<Check className={classesBasic.uncheckedIcon} />}
@@ -189,6 +192,7 @@ export default function RegisterPage(props) {
             <Checkbox
               tabIndex={-1}
               name="photography"
+              checked={photography}
               onClick={handleHobbies}
               checkedIcon={<Check className={classesBasic.checkedIcon} />}
               icon={<Check className={classesBasic.uncheckedIcon} />}
@@ -206,6 +210,7 @@ export default function RegisterPage(props) {
             <Checkbox
               tabIndex={-1}
               name="cooking"
+              checked={cooking}
               onClick={handleHobbies}
               checkedIcon={<Check className={classesBasic.checkedIcon} />}
               icon={<Check className={classesBasic.uncheckedIcon} />}
@@ -228,7 +233,7 @@ export default function RegisterPage(props) {
               <Switch
                 checked={checkedA}
                 onChange={HandelParticipate}
-                value="checkedA"
+                checked={data.participate}
                 name="participate"
                 classes={{
                   switchBase: classes.switchBase,
@@ -256,6 +261,7 @@ export default function RegisterPage(props) {
           inputProps={{
             type: "text",
             name:"howknowaboutus",
+            value:data.howknowaboutus,
             endAdornment: (
               <InputAdornment position="end">
                 <PhoneIcon className={classes.inputIconsColor} />
@@ -274,6 +280,7 @@ export default function RegisterPage(props) {
           inputProps={{
             type: "text",
             name:"helthproblems",
+            value:data.helthproblems,
             endAdornment: (
               <InputAdornment position="end">
                 <Healing className={classes.inputIconsColor} />
@@ -291,7 +298,7 @@ export default function RegisterPage(props) {
               <Switch
                 checked={checkedB}
                 onChange={HandelNotifiedemail}
-                value="checkedB"
+                checked={data.notifiedemail}
                 name="notifiedemail"
                 classes={{
                   switchBase: classes.switchBase,
@@ -311,12 +318,12 @@ export default function RegisterPage(props) {
       </CardBody>
       <CardFooter className={classes.cardFooter}>
         <Link to="/register/step2">
-          <Button className="button" simple color="danger" size="lg">
+          <Button onClick={()=>nextData(false)}  className="button" simple color="danger" size="lg">
             Back
           </Button>
         </Link>
         <Link to="/register/step3">
-          <Button onClick={nextData}  type="submit" className="button1" simple color="danger" size="lg">
+          <Button onClick={()=>nextData(true)}  type="button" className="button1" simple color="danger" size="lg">
             Submit
           </Button>
         </Link>

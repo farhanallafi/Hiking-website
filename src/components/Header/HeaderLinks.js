@@ -1,5 +1,5 @@
 /*eslint-disable*/
-import React from "react";
+import React,{useEffect} from "react";
 import DeleteIcon from "@material-ui/icons/Delete";
 import IconButton from "@material-ui/core/IconButton";
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
@@ -27,6 +27,25 @@ const myStyle = makeStyles(style);
 
 export default function HeaderLinks(props) {
   const classes = useStyles();
+
+  let [auth,setAuth] = React.useState({
+    state: false,
+    link: 'login',
+    page: 'Login'
+  })
+  let {state,link,page} = auth;
+  React.useEffect(()=>{
+    let token = localStorage.getItem('token')
+    if(token && !auth.state){
+      setAuth({
+        state: true,
+        link: 'profile-page',
+        page: 'Profile'
+      })
+    }
+  })
+
+
   return (
     <List className={`${props.className} ${classes.list}`}>
     <ListItem className={classes.listItem}>
@@ -89,35 +108,23 @@ export default function HeaderLinks(props) {
         />
       </ListItem>
       <ListItem className={classes.listItem}>
-        <CustomDropdown
-          noLiPadding
-          buttonText="Login"
-          buttonProps={{
-            className: classes.navLink,
-            color: "transparent"
-          }}
-          buttonIcon={Apps}
-          dropdownList={[
+        
             <Link
-            to="/login" className={classes.dropdownLink}>
-             Login
+            to={"/"+link} className={classes.navLink}>
+             {page}
              
-            </Link>,
-            // <Link
-            //   to="/register"
-            //   className={classes.dropdownLink}
-            // >
-            //  Sign up
-            // </Link>,
-            <Link
-              to="/profile-page"
-              className={classes.dropdownLink}
-            >
-              Profile 
             </Link>
-          ]}
-        />
       </ListItem>
+      {link ==='profile-page' ? <ListItem className={classes.listItem}>
+        
+            <Link
+            to={"/"} className={classes.navLink}>
+            <Button onClick={localStorage.removeItem('token')}>
+              Logout
+            </Button>
+            </Link>
+      </ListItem> 
+      : null}
       
       <ListItem className={classes.listItem}>
       

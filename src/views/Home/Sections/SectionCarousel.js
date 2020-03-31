@@ -10,12 +10,20 @@ import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import Card from "components/Card/Card.js";
 
-import image1 from "assets/img/spr.jpg";
-import image2 from "assets/img/bg7.jpg";
-import image3 from "assets/img/bre2.JPG";
-import image4 from "assets/img/fra.jpg";
-import image5 from "assets/img/dre1.jpg";
-import image6 from "assets/img/tri.jpg";
+
+import image2 from "assets/img/Carousel/image2.jpg";
+import image3 from "assets/img/Carousel/image3.jpg";
+import image5 from "assets/img/Carousel/image5.jpg";
+import image6 from "assets/img/Carousel/image6.jpg";
+import image7 from "assets/img/Carousel/image7.jpg";
+import image8 from "assets/img/Carousel/image8.jpg";
+import image9 from "assets/img/Carousel/image9.jpg";
+import image10 from "assets/img/Carousel/image10.jpg";
+import image11 from "assets/img/Carousel/image11.jpg";
+import image12 from "assets/img/Carousel/image12.jpg";
+import image13 from "assets/img/Carousel/image13.jpg";
+import image14 from "assets/img/Carousel/image14.jpg";
+import image15 from "assets/img/Carousel/image15.jpg";
 
 import styles from "assets/jss/material-kit-react/views/componentsSections/carouselStyle.js";
 
@@ -26,10 +34,10 @@ export default function SectionCarousel() {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 500,
+    speed: 1000,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: false
+    autoplay: true
     
   };
   return (
@@ -40,7 +48,7 @@ export default function SectionCarousel() {
             <Card carousel>
               <Carousel {...settings}>
                 <div>
-                  <img src={image1} alt="First slide" className="testimg" />
+                  <img src={image10} alt="First slide" className="testimg" />
                   <div className="slick-caption">
                     <h4>
                       <LocationOn className="slick-icons" />
@@ -51,7 +59,7 @@ export default function SectionCarousel() {
                 </div>
                 <div>
                   <img
-                    src={image2}
+                    src={image14}
                     alt="Second slide"
                     className="slick-image"
                   />
@@ -73,7 +81,7 @@ export default function SectionCarousel() {
                   </div>
                 </div>
                 <div>
-                  <img src={image4} alt="Third slide" className="slick-image" />
+                  <img src={image8} alt="Third slide" className="slick-image" />
                   <div className="slick-caption">
                     <h4>
                       <LocationOn className="slick-icons" />
@@ -92,6 +100,33 @@ export default function SectionCarousel() {
                 </div>
                 <div>
                   <img src={image6} alt="Third slide" className="slick-image" />
+                  <div className="slick-caption">
+                    <h4>
+                      <LocationOn className="slick-icons" />
+                      Yellowstone National Park, United States
+                    </h4>
+                  </div>
+                </div>
+                <div>
+                  <img src={image13} alt="Third slide" className="slick-image" />
+                  <div className="slick-caption">
+                    <h4>
+                      <LocationOn className="slick-icons" />
+                      Yellowstone National Park, United States
+                    </h4>
+                  </div>
+                </div>
+                <div>
+                  <img src={image12} alt="Third slide" className="slick-image" />
+                  <div className="slick-caption">
+                    <h4>
+                      <LocationOn className="slick-icons" />
+                      Yellowstone National Park, United States
+                    </h4>
+                  </div>
+                </div>
+                <div>
+                  <img src={image11} alt="Third slide" className="slick-image" />
                   <div className="slick-caption">
                     <h4>
                       <LocationOn className="slick-icons" />

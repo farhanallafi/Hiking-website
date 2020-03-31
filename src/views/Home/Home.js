@@ -31,6 +31,7 @@ export default function  Home(props) {
  
   const classes = useStyles();
   const { ...rest } = props;
+
   return (
     <div>
       <Header
@@ -50,11 +51,16 @@ export default function  Home(props) {
           <VideoSection/>
         </div>
       </Parallax> */}
+
+        
       <NewParallax/>
+     
       <div className={ classNames(classes.main, classes.mainRaised,"section")}>
+      
         <div className={classes.container}>
+        
         <GridContainer>
-            <GridItem>
+            <GridItem>  
               <div className={classes.brand}>
                   <SectionCarousel />
               </div>

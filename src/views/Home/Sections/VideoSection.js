@@ -3,7 +3,7 @@ import React from 'react'
 export default function VideoSection() {
     return (
         <div className='header'>
-     
+                 <h1>hello</h1>
                 <video playsInline="playsinline" autoPlay="autoplay" muted="muted" loop="loop">
                     <source src="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4" type="video/mp4"/>
                 </video>

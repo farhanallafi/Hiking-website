@@ -138,3 +138,10 @@ body{
   font-weight: bold !important;
   text-align: justify;
 }
+.newEventText p {
+  font-family: 'Caladea', serif;
+  font-size: 16px;
+  color: black;
+  font-weight: bold !important;
+  text-align: justify;
+}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect,useState} from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
@@ -35,17 +35,17 @@ const useStylesbasic = makeStyles(stylesbasic);
 
 
 export default function RegisterPage(props) {
-  const [german,setGerman]=React.useState(false)
-  const [english,setEnglish]=React.useState(false)
-  const [arabic,setArabic]=React.useState(false)
+  const [german,setGerman]=React.useState(props.languages.indexOf('german')>=0)
+  const [english,setEnglish]=React.useState(props.languages.indexOf('english')>=0)
+  const [arabic,setArabic]=React.useState(props.languages.indexOf('arabic')>=0)
 
   const [data,setData]=React.useState({
-    city: "",
-    member: false,
-    gender: "",
-    profession: "",
-    daynumber: "",
-    vegetarian: false,
+    city: props.city,
+    member: props.member,
+    gender: props.gender,
+    profession: props.profession,
+    daynumber: props.daynumber,
+    vegetarian: props.vegetarian,
   })
 
   let {
@@ -57,12 +57,6 @@ export default function RegisterPage(props) {
     vegetarian
   }=data
 
-  const [selectedEnabled, setSelectedEnabled] = React.useState("b");
-
-  const handleRadio = (value)=>{
-    handelgender(value)
-    setSelectedEnabled(value)
-  }
 
   const onchange = e => {
     setData({ ...data, [e.target.name]: e.target.value });
@@ -75,7 +69,7 @@ export default function RegisterPage(props) {
     setData({ ...data, vegetarian: e.target.checked });
   };
 
-  const handelgender = value => {
+  const handlegender = value => {
     let selectedGender = "";
     switch (value) {
       case "a":
@@ -123,9 +117,12 @@ export default function RegisterPage(props) {
     console.log(lang)
 
 
-    props.getData({...data,languages:lang})
+    props.getData({...data,languages:lang},false)
   }
-
+  const backData = () =>{
+    props.backData(data,false)
+    console.log('the old form data = ', data)
+  }
 
   const classes = useStyles();
   const classesBasic = useStylesbasic();
@@ -143,6 +140,7 @@ export default function RegisterPage(props) {
           inputProps={{
             type: "text",
             name:"city",
+            value:data.city,
             endAdornment: (
               <InputAdornment position="end">
                 <LocationCity className={classes.inputIconsColor} />
@@ -158,8 +156,8 @@ export default function RegisterPage(props) {
             control={
               <Switch
                 onChange={HandelMember}
-                value="checkedB"
                 name="member"
+                checked={data.member}
                 classes={{
                   switchBase: classesBasic.switchBase,
                   checked: classesBasic.switchChecked,
@@ -188,8 +186,8 @@ export default function RegisterPage(props) {
           <FormControlLabel
             control={
               <Radio
-                checked={selectedEnabled === "a"}
-                onChange={() => handleRadio("a")}
+                checked={gender === "Male"}
+                onChange={() => handlegender("a")}
                 value="a"
                 //  name="radio button enabled"
                 name="gender"
@@ -216,8 +214,8 @@ export default function RegisterPage(props) {
           <FormControlLabel
             control={
               <Radio
-                checked={selectedEnabled === "b"}
-                onChange={() => handleRadio("b")}
+                checked={gender === "Female"}
+                onChange={() => handlegender("b")}
                 value="b"
                 name="radio button enabled"
                 aria-label="B"
@@ -242,8 +240,8 @@ export default function RegisterPage(props) {
           <FormControlLabel
             control={
               <Radio
-                checked={selectedEnabled === "c"}
-                onChange={() => handleRadio("c")}
+                checked={gender === "Divers"}
+                onChange={() => handlegender("c")}
                 value="c"
                 name="radio button enabled"
                 aria-label="C"
@@ -272,7 +270,7 @@ export default function RegisterPage(props) {
         </div>
         <Select
           name="profession"
-          value={profession}
+          value={data.profession}
           onChange={onchange}
           className={classesBasic}
         >
@@ -290,6 +288,7 @@ export default function RegisterPage(props) {
               tabIndex={-1}
               name="german"
               onClick={handleLanguages}
+              checked = {german}
               checkedIcon={<Check className={classesBasic.checkedIcon} />}
               icon={<Check className={classesBasic.uncheckedIcon} />}
               classes={{
@@ -306,6 +305,7 @@ export default function RegisterPage(props) {
             <Checkbox
               tabIndex={-1}
               name="english"
+              checked = {english}
               onClick={handleLanguages}
               checkedIcon={<Check className={classesBasic.checkedIcon} />}
               icon={<Check className={classesBasic.uncheckedIcon} />}
@@ -324,6 +324,7 @@ export default function RegisterPage(props) {
               tabIndex={-1}
               name="arabic"
               onClick={handleLanguages}
+              checked = {arabic}
               checkedIcon={<Check className={classesBasic.checkedIcon} />}
               icon={<Check className={classesBasic.uncheckedIcon} />}
               classes={{
@@ -341,7 +342,7 @@ export default function RegisterPage(props) {
         </div>
         <Select
           name="daynumber"
-          value={daynumber}
+          value={data.daynumber}
           onChange={onchange}
           className={classesBasic}
         >
@@ -357,8 +358,8 @@ export default function RegisterPage(props) {
             control={
               <Switch
               onChange={HandelVegetarian}
-                value="checkedA"
                 name="vegetarian"
+                checked={data.vegetarian}
                 classes={{
                   switchBase: classes.switchBase,
                   checked: classes.switchChecked,
@@ -376,7 +377,7 @@ export default function RegisterPage(props) {
       </CardBody>
       <CardFooter className={classes.cardFooter}>
         <Link to="/register/step1">
-          <Button className="button" simple color="danger" size="lg">
+          <Button  onClick={nextData} className="button" simple color="danger" size="lg">
             Back
           </Button>
         </Link>

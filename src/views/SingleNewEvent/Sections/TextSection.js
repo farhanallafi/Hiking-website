@@ -16,11 +16,11 @@ import styles from "assets/jss/material-kit-react/views/landingPageSections/prod
 import image1 from "assets/img/tri.jpg";
 import image2 from "assets/img/kon.jpg";
 import image3 from "assets/img/spi.jpg";
-import image4 from "assets/img/magdeburg/1.jpg";
-import image5 from "assets/img/magdeburg/2.jpg";
-import image6 from "assets/img/magdeburg/3.jpg";
-import image7 from "assets/img/magdeburg/4.jpg";
-import image8 from "assets/img/magdeburg/5.jpg";
+import image4 from "assets/img/Test/1.jpg";
+import image5 from "assets/img/Test/2.jpg";
+import image6 from "assets/img/Test/3.jpg";
+import image7 from "assets/img/Test/4.jpg";
+import image8 from "assets/img/Test/5.jpg";
 
 
  // import image gallery
@@ -62,13 +62,13 @@ export default function TextSection(props) {
       <GridContainer>
           <GridItem xs={12} sm={12} md={12}>
           <h2 className={classes.title}> {props.title}</h2>
-          <h5 className={classes.description}>
-          Spain’s Hike 8-16 June 2018 The place: Basque and Catalan regions. About the Hike: A long hike, average difficulty in flat areas and mountains. The program of the hike: Friday , 8th June:We gathered in a sport hall of a school in the city of Pamplona,
-               where we were welcomed with a touristic tour by the hosts to get to know the city. , Saturday, 9th June: We hiked for 8 km from the village of Saint Josee to Javier,
-                where we visited the castle of Javier. Afterwards, we discussed the topic of the hike in groups. Later in the evening ,there was a collective cultural musical program. Sunday, 10th June: We walked about 13 km from Isporthor to Loyola, where an official 
-                reception was prepared for us in presense of the president of Basque and other public figures in addition to the citizens of the city, who had joined us walking. Greeting speech were recited followed by a cultural program. In the evening, the groups continued 
-                the discussion about the topic of the hike. 
-          </h5>
+          <div className="newEventText">
+          
+          <p>
+          {props.paragraph} 
+          </p> 
+          
+          </div>
           </GridItem>
           <GridItem xs={12} sm={12} md={12}>
          
@@ -79,7 +79,7 @@ export default function TextSection(props) {
           </GridItem>
           
           </GridContainer>
-          <Gallery photos={photos} onClick={openLightbox} />
+         {/*  <Gallery photos={photos} onClick={openLightbox} />
       <ModalGateway>
         {viewerIsOpen ? (
           <Modal onClose={closeLightbox}>
@@ -94,7 +94,7 @@ export default function TextSection(props) {
           </Modal>
         ) : null}
       </ModalGateway>
-   
+    */}
     </div>
   );
 }

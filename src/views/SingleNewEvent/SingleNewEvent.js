@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect,useState} from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // @material-ui/core components
@@ -15,6 +15,8 @@ import Button from "components/CustomButtons/Button.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
 import Parallax from "components/Parallax/Parallax.js";
 
+import apis from "../../api/api"
+
 import styles from "assets/jss/material-kit-react/views/landingPage.js";
 
 // Sections for this page
@@ -29,7 +31,31 @@ export default function SingleNewEvent(props) {
   const classes = useStyles();
   let {name} = props.match.params;
   const { ...rest } = props;
-  return (
+
+
+  const[data,setData]=useState({
+     paragraph:"",
+     paragraphAr:"",
+     imageURL: ""
+  });
+  
+  let {paragraph,paragraphAr,imageURL} = data;
+
+  useEffect( ()=>{
+    console.log('heree')
+    if(data.paragraph === ""){
+      apis.getNewHike(name).then(response=>{
+      setData(response.data)
+      })
+    }
+    
+  })
+
+  console.log(data)
+
+
+  
+  return (  
     <div>
       <Header
         color="transparent"
@@ -79,14 +105,11 @@ export default function SingleNewEvent(props) {
                 rel="noopener noreferrer"
               >
                 <i className="fas fa-hiking mr-2" />
-               
-                
-                
                 Register Now 
               </Button>
               </div>
         <div className={classes.container}>
-          <TextSection title={name}/>
+          <TextSection title={name} paragraph={paragraph}  paragraphAr={paragraphAr}  imageURL={imageURL} />
         </div>
       </div>
       <Footer />

@@ -1,11 +1,12 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 // @material-ui/core components
+import apis from "../../api/api"
+import {Redirect} from "react-router-dom"
 import { makeStyles } from "@material-ui/core/styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import Icon from "@material-ui/core/Icon";
 // @material-ui/icons
 import Email from "@material-ui/icons/Email";
-import People from "@material-ui/icons/People";
 // core components
 import Header from "components/Header/Header.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
@@ -31,10 +32,51 @@ export default function LoginPage(props) {
   setTimeout(function() {
     setCardAnimation("");
   }, 700);
+  let [redirect,setRedirect] = useState(false)
+  let [error,setError] = useState(null)
+  let [loginData,setLoginData] = useState({
+    email: '',
+    password: ''
+  })
+  let {email,password} = loginData;
+  const onChange = e => {
+  
+    setLoginData({ ...loginData, [e.target.name]: e.target.value });
+  };
+
+
+  const sendData = () => {
+    apis.login(loginData).then(response =>{
+      let info = response.data;
+      if (info.error){
+        let temp_output = info.errors.map((error,index) =>{
+
+          return(
+            <h3 key = {index} style={{"color":"red"}}>{error.msg}</h3>
+          )
+          
+        })
+        console.log('im hereeeee')
+        setError(temp_output)
+        setRedirect(false)
+      }else{
+      let token = info.data;
+      localStorage.setItem('token',token)
+      setError(null)
+      setRedirect(true)
+      }
+
+    }).catch(error=>{
+      console.log(error)
+    })
+
+  }
+
   const classes = useStyles();
   const { ...rest } = props;
   return (
     <div>
+      {(localStorage.getItem('token')|| redirect) ? <Redirect to='/profile-page' />: null}
       <Header
         absolute
         color="transparent"
@@ -55,8 +97,8 @@ export default function LoginPage(props) {
             <GridItem xs={12} sm={12} md={4}>
             <div className="addSec">
               <Card className={classes[cardAnimaton]}>
-                <form className={classes.form}>
-                  <CardHeader color="primary" className={classes.cardHeader}>
+                
+                  <CardHeader color="info" className={classes.cardHeader}>
                     <h4>Login</h4>
                     <div className={classes.socialLine}>
                       <Button
@@ -90,22 +132,9 @@ export default function LoginPage(props) {
                   </CardHeader>
                   <p className={classes.divider}>Or Be Classical</p>
                   <CardBody>
+                      {error}
                     <CustomInput
-                      labelText="First Name..."
-                      id="first"
-                      formControlProps={{
-                        fullWidth: true
-                      }}
-                      inputProps={{
-                        type: "text",
-                        endAdornment: (
-                          <InputAdornment position="end">
-                            <People className={classes.inputIconsColor} />
-                          </InputAdornment>
-                        )
-                      }}
-                    />
-                    <CustomInput
+                      onChange = {onChange}
                       labelText="Email..."
                       id="email"
                       formControlProps={{
@@ -113,6 +142,8 @@ export default function LoginPage(props) {
                       }}
                       inputProps={{
                         type: "email",
+                        value: email,
+                        name:"email",
                         endAdornment: (
                           <InputAdornment position="end">
                             <Email className={classes.inputIconsColor} />
@@ -121,6 +152,7 @@ export default function LoginPage(props) {
                       }}
                     />
                     <CustomInput
+                    onChange = {onChange}
                       labelText="Password"
                       id="pass"
                       formControlProps={{
@@ -128,6 +160,8 @@ export default function LoginPage(props) {
                       }}
                       inputProps={{
                         type: "password",
+                        value:password,
+                        name:"password",
                         endAdornment: (
                           <InputAdornment position="end">
                             <Icon className={classes.inputIconsColor}>
@@ -140,11 +174,10 @@ export default function LoginPage(props) {
                     />
                   </CardBody>
                   <CardFooter className={classes.cardFooter}>
-                    <Button simple color="primary" size="lg">
+                    <Button onClick={sendData} simple color="primary" size="lg">
                       Get started
                     </Button>
                   </CardFooter>
-                </form>
               </Card>
               </div>
             </GridItem>

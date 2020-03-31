@@ -16,11 +16,11 @@ import styles from "assets/jss/material-kit-react/views/landingPageSections/prod
 import image1 from "assets/img/tri.jpg";
 import image2 from "assets/img/kon.jpg";
 import image3 from "assets/img/spi.jpg";
-import image4 from "assets/img/magdeburg/1.jpg";
-import image5 from "assets/img/magdeburg/2.jpg";
-import image6 from "assets/img/magdeburg/3.jpg";
-import image7 from "assets/img/magdeburg/4.jpg";
-import image8 from "assets/img/magdeburg/5.jpg";
+import image4 from "assets/img/Test/1.jpg";
+import image5 from "assets/img/Test/2.jpg";
+import image6 from "assets/img/Test/3.jpg";
+import image7 from "assets/img/Test/4.jpg";
+import image8 from "assets/img/Test/5.jpg";
 
 import  SectionCarousel from "../../Home/Sections/SectionCarousel";
  // import image gallery

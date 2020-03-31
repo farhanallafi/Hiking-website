@@ -54,7 +54,7 @@ export default function ProductSection() {
             </GridItem>
             <GridItem xs={12} sm={6}  >
             <Link to="/singlenewevent/Sweden">
-            <h4 id="font">Sweden Hike</h4>
+            <h4 id="font">Sweden Hike</h4>  
               <img 
                 src={image2}
                 alt="..."
@@ -63,8 +63,8 @@ export default function ProductSection() {
               </Link>
             </GridItem>
             <GridItem xs={12} sm={6}  >
-            <Link to="/singlenewevent/Munich">
-            <h4 id="font">Munich Hike</h4>
+            <Link to="/singlenewevent/Schwangau">
+            <h4 id="font">Schwangau Hike</h4>
               <img 
                 src={image3}
                 alt="..."

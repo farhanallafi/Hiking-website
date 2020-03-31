@@ -1,4 +1,4 @@
-video { 
+ video { 
     position: fixed;
     top: 50%;
     left: 50%;
@@ -11,4 +11,24 @@ video {
     background: url('//demosthenes.info/assets/images/polina.jpg') no-repeat;
   background-size: cover;
   transition: 1s opacity;
+}
+.counter-container{
+  margin-top:150px;
+  margin-left: 80px;
+  font-weight: 16px;
+}
+.counter{
+  margin-top:20px;
+  color:white;
+  font-weight: bold;
+  text-align:left;
+  
+}
+#hikers ,#distance ,#hike{
+  font-weight: bold;
+  font-size: 30px;
+}
+.hikers ,.distance,.hike{
+  font-size: 30px;
+  font-weight: bold;
 }
